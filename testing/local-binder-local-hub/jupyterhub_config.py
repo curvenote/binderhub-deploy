@@ -31,7 +31,7 @@ c.Spawner.debug = True
 c.JupyterHub.authenticator_class = "nullauthenticator.NullAuthenticator"
 
 c.JupyterHub.hub_ip = "0.0.0.0"
-c.JupyterHub.hub_connect_ip = os.getenv("JUPYTERHUB_HUB_CONNECT_IP", hostip)
+c.JupyterHub.hub_connect_ip = os.getenv("JUPYTERHUB_CONNECT_IP", hostip)
 
 binderhub_service_name = "binder"
 binderhub_config = os.path.join(os.path.dirname(__file__), "binderhub_config.py")
