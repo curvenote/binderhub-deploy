@@ -24,7 +24,7 @@ c.BinderHub.use_registry = False
 c.BinderHub.builder_required = False
 c.BinderHub.cors_allow_origin = '*'
 c.GitHubRepoProvider.banned_specs = ['^(?!(curvenote|executablebooks|stevejpurves|rowanc1|groundwater-recharge)/).*']
-c.GitHubRepoProvider.access_token = os.getenv["GITHUB_TOKEN"]
+c.GitHubRepoProvider.access_token = os.getenv("GITHUB_TOKEN")
 
 c.BinderHub.build_class = LocalRepo2dockerBuild
 c.BinderHub.push_secret = None
