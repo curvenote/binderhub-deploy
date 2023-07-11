@@ -58,6 +58,7 @@ c.JupyterHub.services = [
         "environment": {
             "JUPYTERHUB_EXTERNAL_URL": os.getenv("JUPYTERHUB_EXTERNAL_URL", ""),
             "GITHUB_TOKEN": os.getenv("GITHUB_TOKEN"),
+            "BANNED_SPECS": os.getenv("BANNED_SPECS"),
         },
     },
     {
