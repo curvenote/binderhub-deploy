@@ -1,4 +1,4 @@
-export BANNED_SPECS=^(?!(curvenote|executablebooks|stevejpurves|rowanc1|groundwater-recharge)/).*
+export BANNED_SPECS="^(?!(curvenote|executablebooks|stevejpurves|rowanc1|groundwater-recharge)/).*"
 export GITHUB_TOKEN=gpg_qwertyqwertyqwerty1234567890
 export JUPYTERHUB_EXTERNAL_URL=https://<subdomain>.curvenote.dev
 export JUPYTERHUB_CONNECT_IP=54.212.239.18
