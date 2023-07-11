@@ -25,6 +25,13 @@ c.BinderHub.builder_required = False
 c.BinderHub.cors_allow_origin = '*'
 c.GitHubRepoProvider.banned_specs = ['^(?!(curvenote|executablebooks|stevejpurves|rowanc1|groundwater-recharge)/).*']
 c.GitHubRepoProvider.access_token = os.getenv("GITHUB_TOKEN")
+c.GitLabRepoProvider.banned_specs = ['.*']
+c.GistRepoProvider.banned_specs = ['.*']
+c.ZenodoProvider.banned_specs = ['.*']
+c.FigshareRepoProvider.banned_specs = ['.*']
+c.HydroshareRepoProvider.banned_specs = ['.*']
+c.DataverseRepoProvider.banned_specs = ['.*']
+c.GitRepoProvider.banned_specs =['.*']
 
 c.BinderHub.build_class = LocalRepo2dockerBuild
 c.BinderHub.push_secret = None
