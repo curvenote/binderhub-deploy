@@ -60,7 +60,7 @@ c.JupyterHub.services = [
         "command": ["python3", "-mbinderhub", f"--config={binderhub_config}"],
         "url": "http://localhost:8585",
         "environment": {
-            "JUPYTERHUB_EXTERNAL_URL": config["exernal_url"],
+            "JUPYTERHUB_EXTERNAL_URL": config["external_url"],
             "GITHUB_TOKEN": config["github_token"],
             "BANNED_SPECS": config["banned_specs"],
         },
