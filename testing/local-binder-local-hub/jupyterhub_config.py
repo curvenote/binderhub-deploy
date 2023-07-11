@@ -8,11 +8,12 @@ import os
 import sys
 import socket
 import yaml
+from yaml.loader import SafeLoader
 
 from dockerspawner import DockerSpawner
 
 with open('./configure.yaml') as f:
-    config = yaml.load(f)
+    config = yaml.load(f, Loader=SafeLoader)
 
 from binderhub.binderspawner_mixin import BinderSpawnerMixin
 
