@@ -9,7 +9,7 @@ docker
 escapism
 jinja2
 jsonschema
-jupyterhub>=3.*
+jupyterhub==3.*
 kubernetes
 prometheus_client
 pyjwt>=2
