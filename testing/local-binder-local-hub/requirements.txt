@@ -2,3 +2,4 @@ dockerspawner
 jupyter-repo2docker
 jupyterhub>=3.*
 nullauthenticator
+jupyterhub-idle-culler

@@ -33,6 +33,19 @@ c.JupyterHub.authenticator_class = "nullauthenticator.NullAuthenticator"
 c.JupyterHub.hub_ip = "0.0.0.0"
 c.JupyterHub.hub_connect_ip = os.getenv("JUPYTERHUB_CONNECT_IP", hostip)
 
+c.JupyterHub.load_roles = [
+    {
+        "name": "jupyterhub-idle-culler-role",
+        "scopes": [
+            "list:users",
+            "read:users:activity",
+            "read:servers",
+            "delete:servers",
+        ],
+        "services": ["jupyterhub-idle-culler-service"]
+    }
+]
+
 binderhub_service_name = "binder"
 binderhub_config = os.path.join(os.path.dirname(__file__), "binderhub_config.py")
 c.JupyterHub.services = [
@@ -44,6 +57,14 @@ c.JupyterHub.services = [
         "environment": {
             "JUPYTERHUB_EXTERNAL_URL": os.getenv("JUPYTERHUB_EXTERNAL_URL", "")
         },
+    },
+    {
+        "name": "jupyterhub-idle-culler-service",
+        "command": [
+            sys.executable,
+            "-m", "jupyterhub_idle_culler",
+            "--timeout=3600"
+        ]
     }
 ]
 c.JupyterHub.default_url = f"/services/{binderhub_service_name}/"
