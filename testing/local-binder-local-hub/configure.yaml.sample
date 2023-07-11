@@ -1,0 +1,4 @@
+banned_specs: ^(?!(curvenote|executablebooks|stevejpurves|rowanc1|groundwater-recharge)/).*
+github_token: gpg_qwertyqwertyqwerty1234567890
+external_url: https://<subdomain>.curvenote.dev
+connect_ip: 54.212.239.18

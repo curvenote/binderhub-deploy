@@ -1,4 +1,5 @@
 configure.sh
+configure.yaml
 jupyterhub.sqlite
 jupyterhub_cookie_secret
 jupyterhub-proxy.pid

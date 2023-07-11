@@ -7,8 +7,12 @@ Host IP is needed in a few places
 import os
 import sys
 import socket
+import yaml
 
 from dockerspawner import DockerSpawner
+
+with open('./configure.yaml') as f:
+    config = yaml.load(f)
 
 from binderhub.binderspawner_mixin import BinderSpawnerMixin
 
@@ -16,7 +20,6 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 hostip = s.getsockname()[0]
 s.close()
-
 
 # image & token are set via spawn options
 class LocalContainerSpawner(BinderSpawnerMixin, DockerSpawner):
@@ -32,7 +35,7 @@ c.Spawner.debug = True
 c.JupyterHub.authenticator_class = "nullauthenticator.NullAuthenticator"
 
 c.JupyterHub.hub_ip = "0.0.0.0"
-c.JupyterHub.hub_connect_ip = os.getenv("JUPYTERHUB_CONNECT_IP", hostip)
+c.JupyterHub.hub_connect_ip = config["connect_ip"]
 
 c.JupyterHub.load_roles = [
     {
@@ -56,10 +59,9 @@ c.JupyterHub.services = [
         "command": ["python3", "-mbinderhub", f"--config={binderhub_config}"],
         "url": "http://localhost:8585",
         "environment": {
-            "JUPYTERHUB_EXTERNAL_URL": os.getenv("JUPYTERHUB_EXTERNAL_URL"),
-            "JUPYTERHUB_CONNECT_IP": os.getenv("JUPYTERHUB_CONNECT_IP"),
-            "GITHUB_TOKEN": os.getenv("GITHUB_TOKEN"),
-            "BANNED_SPECS": os.getenv("BANNED_SPECS"),
+            "JUPYTERHUB_EXTERNAL_URL": config["exernal_url"],
+            "GITHUB_TOKEN": config["github_token"],
+            "BANNED_SPECS": config["banned_specs"],
         },
     },
     {
