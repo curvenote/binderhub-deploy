@@ -5,6 +5,7 @@ Run `jupyterhub --config=binderhub_config.py` terminal
 Host IP is needed in a few places
 """
 import os
+import sys
 import socket
 
 from dockerspawner import DockerSpawner
