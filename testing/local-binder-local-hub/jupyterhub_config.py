@@ -37,7 +37,7 @@ c.JupyterHub.authenticator_class = "nullauthenticator.NullAuthenticator"
 
 c.JupyterHub.hub_ip = "0.0.0.0"
 # note - you may have to replace this directly with the IP as a string :(
-c.JupyterHub.hub_connect_ip = config["connect_ip"]
+c.JupyterHub.hub_connect_ip.value = config["connect_ip"]
 
 c.JupyterHub.load_roles = [
     {
